@@ -4,7 +4,7 @@
     * git init
     * git add {경로}
     * git commit -m {메세지}
-    * git remote add origin https://github.com/var-mingi/node_study.git
+    * git remote add origin https://github.com/var-mingi/react_study.git
     * 리모트 안했을 경우만 (최초 한번만)
         *git push -u origin master
 3. pull
