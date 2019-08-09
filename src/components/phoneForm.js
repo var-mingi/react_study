@@ -14,8 +14,8 @@ class PhoneForm extends Component {
         e.preventDefault()
         this.props.onCreate(this.state)
         this.setState({
-            name : '1',
-            phone : '2'
+            name : '',
+            phone : ''
         })
     }
     render() {
