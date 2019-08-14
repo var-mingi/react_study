@@ -5,17 +5,17 @@ class PhoneInfoList extends Component {
     static defaultProps = {
         data : [],
         onRemove: () => console.warn('onRemove not defined'),
-        onUpdate: () => console.warn('onUpdate not defined')
+        //onUpdate: () => console.warn('onUpdate not defined')
     }
 
     render() {
-        const {data, onRemove} = this.props
+        const {data, onRemovetest, onUpdate} = this.props
         const list = data.map(
             info => (
                 <PhoneInfo 
                     key = {info.id} 
                     info={info}
-                    onRemove={onRemove}
+                    onRemove={onRemovetest}
                     onUpdate={onUpdate}
                     />)
         )

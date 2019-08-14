@@ -17,8 +17,26 @@ class PhoneInfo extends Component {
         const {info, onRemove} = this.props
         onRemove(info.id)
     }
-    handleUpdate = () => {
-
+    componentDidUpdate(prevProps, prevState) {
+        const { info, onUpdate } = this.props
+        if(!prevState.editing && this.state.editing){
+            this.setState({
+                name : info.name,
+                phone : info.phone
+            })
+        }
+        if(prevState.editing && !this.state.editing){
+            onUpdate(info.id, {
+                name : this.state.name,
+                phone : this.state.phone
+            })
+        }
+    }
+    handleToggleEdit = () => {
+        const {editing} = this.state
+        this.setState({
+            editing: !editing
+        })
     }
 
     render() {
@@ -39,11 +57,17 @@ class PhoneInfo extends Component {
                             placeholder='이름'
                             onChange={this.handleChange}
                         />
-                        </div>
-                        <div>
-                            <button onClick={this.handleRemove}>삭제</button>
-                            <button onClick={this.handleToggleEdit}>적용</button>
                     </div>
+                    <div>
+                        <input
+                            value={this.state.phone}
+                            name='phone'
+                            placeholder='전화번호'
+                            onChange={this.handleChange}
+                        />
+                    </div>
+                    <button onClick={this.handleRemove}>삭제</button>
+                    <button onClick={this.handleToggleEdit}>적용</button>
                 </div>
             )
         }
